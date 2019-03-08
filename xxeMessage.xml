@@ -1,0 +1,6 @@
+<?xml version='1.0'?>
+<poMessage>
+  <from>alice</from>
+  <to>admin</to>
+  <message>Hello</message>
+</poMessage>
